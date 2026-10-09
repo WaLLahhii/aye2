@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сообщения</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">MyCabinet</div>
+
+        <nav class="nav">
+            <a href="index.html" class="nav__link">
+                Личный кабинет
+            </a>
+
+            <a href="messages.html" class="nav__link active">
+                Сообщения
+            </a>
+
+            <a href="statistics.html" class="nav__link">
+                Статистика
+            </a>
+
+            <a href="profile.html" class="nav__link">
+                Профиль
+            </a>
+
+            <a href="admin.html" class="nav__link active">
+                Администратор 
+             </a>   
+        </nav>
+
+        <a href="#" class="logout">Выйти</a>
+    </aside>
+
+    <main class="main">
+
+        <header class="header">
+            <div>
+                <h1>Сообщения</h1>
+                <p>Отправляйте и получайте сообщения</p>
+            </div>
+        </header>
+
+        <section class="messages-layout">
+
+            <div class="panel">
+                <div class="panel__header">
+                    <h2>Входящие</h2>
+                    <span class="badge">5 новых</span>
+                </div>
+
+                <div class="message message--unread">
+                    <div class="message__avatar">АК</div>
+
+                    <div class="message__content">
+                        <strong>Алексей Козлов</strong>
+                        <p>Здравствуйте! Отправляю необходимые документы.</p>
+                        <span>Сегодня, 10:32</span>
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="message__avatar">МС</div>
+
+                    <div class="message__content">
+                        <strong>Мария Смирнова</strong>
+                        <p>Добрый день! Когда можно получить ответ?</p>
+                        <span>Вчера, 16:45</span>
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="message__avatar">ДК</div>
+
+                    <div class="message__content">
+                        <strong>Дмитрий Кузнецов</strong>
+                        <p>Спасибо за предоставленную информацию.</p>
+                        <span>12.09.2026, 14:20</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <div class="panel__header">
+                    <h2>Новое сообщение</h2>
+                </div>
+
+                <form class="form">
+
+                    <div class="form__group">
+                        <label for="recipient">Получатель</label>
+                        <select id="recipient">
+                            <option>Выберите получателя</option>
+                            <option>Алексей Козлов</option>
+                            <option>Мария Смирнова</option>
+                            <option>Дмитрий Кузнецов</option>
+                        </select>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="subject">Тема</label>
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Введите тему сообщения"
+                        >
+                    </div>
+
+                    <div class="form__group">
+                        <label for="message">Сообщение</label>
+                        <textarea
+                            id="message"
+                            rows="7"
+                            placeholder="Введите текст сообщения..."
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="button button--primary">
+                        Отправить сообщение
+                    </button>
+
+                </form>
+
+            </div>
+            </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

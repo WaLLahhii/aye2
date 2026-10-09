@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">MyCabinet</div>
+
+        <nav class="nav">
+            <a href="index.html" class="nav__link active">
+                Личный кабинет
+            </a>
+
+            <a href="messages.html" class="nav__link">
+                Сообщения
+            </a>
+
+            <a href="statistics.html" class="nav__link">
+                Статистика
+            </a>
+
+            <a href="profile.html" class="nav__link">
+                Профиль
+            <a href="admin.html" class="nav__link active">
+                Администратор    
+            </a>
+        </nav>
+
+        <a href="#" class="logout">Выйти</a>
+    </aside>
+
+    <main class="main">
+
+        <header class="header">
+            <div>
+                <h1>Личный кабинет</h1>
+                <p>Добро пожаловать в ваш личный кабинет</p>
+            </div>
+
+            <div class="user">
+                <div class="user__avatar">ИП</div>
+                <div>
+                    <strong>Иван Петров</strong>
+                    <span>Пользователь</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <span class="card__title">Отправлено</span>
+                <strong class="card__number">128</strong>
+                <span class="card__description">сообщений</span>
+            </div>
+
+            <div class="card">
+                <span class="card__title">Получено</span>
+                <strong class="card__number">96</strong>
+                <span class="card__description">сообщений</span>
+            </div>
+
+            <div class="card">
+                <span class="card__title">Новых сообщений</span>
+                <strong class="card__number">5</strong>
+                <span class="card__description">непрочитанных</span>
+            </div>
+
+        </section>
+
+        <section class="content-grid">
+
+            <div class="panel">
+                <div class="panel__header">
+                    <h2>Последние сообщения</h2>
+                    <a href="messages.html">Все сообщения</a>
+                </div>
+
+                <div class="message">
+                    <div class="message__avatar">АК</div>
+
+                    <div class="message__content">
+                        <strong>Алексей Козлов</strong>
+                        <p>Здравствуйте! Отправляю необходимые документы.</p>
+                        <span>Сегодня, 10:32</span>
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="message__avatar">МС</div>
+
+                    <div class="message__content">
+                        <strong>Мария Смирнова</strong>
+                        <p>Добрый день! Когда можно получить ответ?</p>
+                        <span>Вчера, 16:45</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+                <div class="panel__header">
+                    <h2>Быстрые действия</h2>
+                </div>
+
+                <div class="actions">
+                    <a href="messages.html" class="button button--primary">
+                        Написать сообщение
+                    </a>
+
+                    <a href="statistics.html" class="button button--secondary">
+                        Посмотреть статистику
+                    </a>
+
+                    <a href="profile.html" class="button button--secondary">
+                        Настройки профиля
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

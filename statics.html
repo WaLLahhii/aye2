@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            MyCabinet
+        </div>
+
+        <nav class="nav">
+
+            <a href="index.html" class="nav__link">
+                Личный кабинет
+            </a>
+
+            <a href="messages.html" class="nav__link">
+                Сообщения
+            </a>
+
+            <a href="statistics.html" class="nav__link active">
+                Статистика
+            </a>
+
+            <a href="profile.html" class="nav__link">
+                Профиль
+            </a>
+            <a href="admin.html" class="nav__link active">
+                Администратор
+                </a>
+
+        </nav>
+
+        <a href="#" class="logout">
+            Выйти
+        </a>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="header">
+
+            <div>
+
+                <h1>
+                    Статистика
+                </h1>
+
+                <p>
+                    Общая статистика сообщений
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <section class="cards">
+
+            <div class="card">
+
+                <span class="card__title">
+                    Отправлено
+                </span>
+
+                <strong class="card__number">
+                    128
+                </strong>
+
+                <span class="card__description">
+                    сообщений
+                </span>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card__title">
+                    Получено
+                </span>
+
+                <strong class="card__number">
+                    96
+                </strong>
+
+                <span class="card__description">
+                    сообщений
+                </span>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card__title">
+                    Всего сообщений
+                </span>
+
+                <strong class="card__number">
+                    224
+                </strong>
+
+                <span class="card__description">
+                    отправлено и получено
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <section class="statistics-grid">
+
+
+            <div class="panel">
+
+                <div class="panel__header">
+
+                    <h2>
+                        Соотношение сообщений
+                    </h2>
+
+                </div>
+
+                <div class="stat-row">
+
+                    <div class="stat-row__top">
+                        <span>Отправленные</span>
+                        <strong>128</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress__bar progress__bar--blue"
+                            style="width: 57%"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <div class="stat-row__top">
+                        <span>Полученные</span>
+                        <strong>96</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress__bar progress__bar--green"
+                            style="width: 43%"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="panel">
+
+                <div class="panel__header">
+
+                    <h2>
+                        Состояние сообщений
+                    </h2>
+
+                </div>
+
+                <div class="stat-row">
+
+                    <div class="stat-row__top">
+                        <span>Прочитанные</span>
+<strong>91</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress__bar progress__bar--green"
+                            style="width: 95%"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <div class="stat-row__top">
+                        <span>Непрочитанные</span>
+                        <strong>5</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress__bar progress__bar--orange"
+                            style="width: 5%"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="panel statistics-info">
+
+            <div class="panel__header">
+
+                <h2>
+                    Общая информация
+                </h2>
+
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span>
+                        Всего отправлено
+                    </span>
+
+                    <strong>
+                        128
+                    </strong>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span>
+                        Всего получено
+                    </span>
+
+                    <strong>
+                        96
+                    </strong>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span>
+                        Непрочитанных
+                    </span>
+
+                    <strong>
+                        5
+                    </strong>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span>
+                        Всего
+                    </span>
+
+                    <strong>
+                        224
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

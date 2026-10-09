@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Администратор</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">MyCabinet</div>
+
+        <nav class="nav">
+            <a href="index.html" class="nav__link">
+                Личный кабинет
+            </a>
+
+            <a href="messages.html" class="nav__link">
+                Сообщения
+            </a>
+
+            <a href="statistics.html" class="nav__link">
+                Статистика
+            </a>
+
+            <a href="profile.html" class="nav__link">
+                Профиль
+            </a>
+
+            <a href="admin.html" class="nav__link active">
+                Администратор
+            </a>
+        </nav>
+
+        <a href="index.html" class="logout">Назад</a>
+    </aside>
+
+    <main class="main">
+
+        <header class="header">
+            <div>
+                <h1>Панель администратора</h1>
+                <p>Управление пользователями системы</p>
+            </div>
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <span class="card__title">Всего пользователей</span>
+                <strong class="card__number" id="totalUsers">4</strong>
+                <span class="card__description">зарегистрировано</span>
+            </div>
+
+            <div class="card">
+                <span class="card__title">Активные</span>
+                <strong class="card__number" id="activeUsers">3</strong>
+                <span class="card__description">активных аккаунта</span>
+            </div>
+
+            <div class="card">
+                <span class="card__title">Администраторы</span>
+                <strong class="card__number" id="adminUsers">1</strong>
+                <span class="card__description">с правами управления</span>
+            </div>
+
+        </section>
+
+        <section class="panel admin-panel">
+
+            <div class="panel__header">
+                <h2>Список пользователей</h2>
+
+                <button
+                    class="button button--primary"
+                    type="button"
+                    onclick="addUser()">
+                    + Добавить пользователя
+                </button>
+            </div>
+
+            <div class="admin-toolbar">
+                <input
+                    type="search"
+                    id="userSearch"
+                    placeholder="Поиск по имени или email..."
+                    aria-label="Поиск пользователей">
+
+                <select id="roleFilter" aria-label="Фильтр по роли">
+                    <option value="">Все роли</option>
+                    <option value="Администратор">Администратор</option>
+                    <option value="Пользователь">Пользователь</option>
+                </select>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Имя</th>
+                            <th>Email</th>
+                            <th>Роль</th>
+                            <th>Статус</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="usersTable">
+                        <tr>
+                            <td>1</td>
+                            <td>Иван Петров</td>
+                            <td>ivan@example.com</td>
+                            <td>Администратор</td>
+                            <td>
+                                <span class="status status--active">
+                                    Активен
+                                </span>
+                            </td>
+                            <td>
+                                <button class="table-btn edit-btn"
+                                    onclick="editUser(this)">
+                                    Изменить
+                                </button>
+                                <button class="table-btn delete-btn"
+                                    onclick="deleteUser(this)">
+                                    Удалить
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>Алексей Козлов</td>
+                            <td>alex@example.com</td>
+                            <td>Пользователь</td>
+                            <td>
+                                <span class="status status--active">
+                                    Активен
+                                </span>
+                            </td>
+                            <td>
+                                <button class="table-btn edit-btn"
+                                    onclick="editUser(this)">
+                                    Изменить
+                                </button>
+                                <button class="table-btn delete-btn"
+                                    onclick="deleteUser(this)">
+                                    Удалить
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Мария Смирнова</td>
+                            <td>maria@example.com</td>
+                            <td>Пользователь</td>
+                            <td>
+                                <span class="status status--active">
+                                    Активен
+                                </span>
+                            </td>
+                            <td>
+                                <button class="table-btn edit-btn"
+                                    onclick="editUser(this)">
+                                    Изменить
+                                </button>
+                                <button class="table-btn delete-btn"
+                                    onclick="deleteUser(this)">
+                                    Удалить
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>Дмитрий Кузнецов</td>
+                            <td>dmitry@example.com</td>
+                            <td>Пользователь</td>
+                            <td>
+                                <span class="status status--blocked">
+                                    Заблокирован
+                                </span>
+                            </td>
+                            <td>
+                                <button class="table-btn edit-btn"
+                                    onclick="editUser(this)">
+                                    Изменить
+                                </button>
+                                <button class="table-btn delete-btn"
+                                    onclick="deleteUser(this)">
+                                    Удалить
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+    const table = document.getElementById("usersTable");
+
+    function updateStats() {
+        const rows = [...table.querySelectorAll("tr")];
+
+        document.getElementById("totalUsers").textContent =
+            rows.length;
+
+        document.getElementById("activeUsers").textContent =
+            rows.filter(row =>
+                row.querySelector(".status--active")
+            ).length;
+
+        document.getElementById("adminUsers").textContent =
+            rows.filter(row =>
+                row.cells[3]?.textContent.trim() === "Администратор"
+            ).length;
+    }
+
+    function addUser() {
+        const name = prompt("Введите имя пользователя:");
+        if (name === null || !name.trim()) return;
+
+        const email = prompt("Введите email:");
+        if (email === null || !email.trim()) return;
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+            alert("Введите корректный email.");
+            return;
+        }
+
+        const role = prompt(
+            "Введите роль: Пользователь или Администратор",
+            "Пользователь"
+        );
+
+        if (role === null) return;
+
+        if (!["Пользователь", "Администратор"].includes(role.trim())) {
+            alert("Указана неизвестная роль.");
+            return;
+        }
+
+        const row = document.createElement("tr");
+        const values = [
+            String(Math.max(
+                0,
+                ...[...table.querySelectorAll("tr")].map(r =>
+                    Number(r.cells[0].textContent) || 0
+                )
+            ) + 1),
+            name.trim(),
+            email.trim(),
+            role.trim()
+        ];
+
+        values.forEach(value => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        const statusCell = document.createElement("td");
+        statusCell.innerHTML =
+            '<span class="status status--active">Активен</span>';
+        row.appendChild(statusCell);
+
+        const actionsCell = document.createElement("td");
+        actionsCell.innerHTML = `
+            <button class="table-btn edit-btn"
+                onclick="editUser(this)">Изменить</button>
+            <button class="table-btn delete-btn"
+                onclick="deleteUser(this)">Удалить</button>
+        `;
+        row.appendChild(actionsCell);
+
+        table.appendChild(row);
+        filterUsers();
+        updateStats();
+    }
+
+    function editUser(button) {
+        const row = button.closest("tr");
+        const oldName = row.cells[1].textContent;
+        const oldEmail = row.cells[2].textContent;
+        const oldRole = row.cells[3].textContent;
+
+        const name = prompt("Имя пользователя:", oldName);
+        if (name === null || !name.trim()) return;
+
+        const email = prompt("Email пользователя:", oldEmail);
+        if (email === null || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+            alert("Введите корректный email.");
+            return;
+        }
+
+        const role = prompt(
+            "Роль: Пользователь или Администратор",
+            oldRole
+        );
+
+        if (role === null) return;
+
+        if (!["Пользователь", "Администратор"].includes(role.trim())) {
+            alert("Указана неизвестная роль.");
+            return;
+        }
+
+        row.cells[1].textContent = name.trim();
+        row.cells[2].textContent = email.trim();
+        row.cells[3].textContent = role.trim();
+
+        filterUsers();
+        updateStats();
+    }
+
+    function deleteUser(button) {
+        const row = button.closest("tr");
+
+        if (confirm(
+            "Удалить пользователя " + row.cells[1].textContent + "?"
+        )) {
+            row.remove();
+            filterUsers();
+            updateStats();
+        }
+    }
+
+    function filterUsers() {
+        const search = document.getElementById("userSearch")
+            .value.toLowerCase().trim();
+
+        const role = document.getElementById("roleFilter").value;
+
+        [...table.querySelectorAll("tr")].forEach(row => {
+            const matchesSearch =
+                row.cells[1].textContent.toLowerCase().includes(search) ||
+                row.cells[2].textContent.toLowerCase().includes(search);
+
+            const matchesRole =
+                !role || row.cells[3].textContent.trim() === role;
+
+            row.hidden = !(matchesSearch && matchesRole);
+        });
+    }
+
+    document.getElementById("userSearch")
+        .addEventListener("input", filterUsers);
+
+    document.getElementById("roleFilter")
+        .addEventListener("change", filterUsers);
+
+    updateStats();
+</script>
+
+</body>
+</html>

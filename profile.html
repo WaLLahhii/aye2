@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">MyCabinet</div>
+
+        <nav class="nav">
+            <a href="index.html" class="nav__link">
+                Личный кабинет
+            </a>
+
+            <a href="messages.html" class="nav__link">
+                Сообщения
+            </a>
+
+            <a href="statistics.html" class="nav__link">
+                Статистика
+            </a>
+
+            <a href="profile.html" class="nav__link active">
+                Профиль
+            </a>
+            <a href="admin.html" class="nav__link active">
+                Администратор
+                </a>
+        </nav>
+
+        <a href="#" class="logout">Выйти</a>
+    </aside>
+
+    <main class="main">
+
+        <header class="header">
+            <div>
+                <h1>Профиль</h1>
+                <p>Информация о пользователе</p>
+            </div>
+        </header>
+
+        <section class="panel profile">
+
+            <div class="profile__avatar">ИП</div>
+
+            <form class="form">
+
+                <div class="form__group">
+                    <label for="name">Имя</label>
+                    <input
+                        type="text"
+                        id="name"
+                        value="Иван Петров"
+                    >
+                </div>
+
+                <div class="form__group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        value="ivan@example.com"
+                    >
+                </div>
+
+                <div class="form__group">
+                    <label for="phone">Телефон</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        value="+7 (999) 123-45-67"
+                    >
+                </div>
+
+                <button type="submit" class="button button--primary">
+                    Сохранить изменения
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
